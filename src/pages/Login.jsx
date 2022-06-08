@@ -1,5 +1,8 @@
 import React from "react";
 import "../styles/login.css";
+import GoogleButton from "react-google-button";
+import { Link } from "react-router-dom";
+
 const Login = () => {
   return (
     <>
@@ -36,18 +39,22 @@ const Login = () => {
               defaultValue="Login"
               name="login"
               className="btn waves-effect waves-light "
-              style={{ width: "100%", backgroundColor: "#ff4081" }}
+              style={{
+                width: "100%",
+                backgroundColor: "#6177DF",
+                marginBottom: 10,
+              }}
+            />
+            <GoogleButton
+              onClick={() => {
+                console.log("Google button clicked");
+              }}
             />
           </div>
-          <div
-            style={{ fontSize: 14, marginTop: 10, marginBottom: 15 }}
-          >
-            <a href="#" className="left">
-              Register Now!
-            </a>
-            <a href="#" className="right">
-              Forgot Password?
-            </a>
+          <div style={{ fontSize: 14, marginTop: 10 }}>
+            <Link to='/register'>
+            Register Now!
+            </Link>
           </div>
           <br />
         </div>
