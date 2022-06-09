@@ -1,9 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import "../styles/login.css";
 import GoogleButton from "react-google-button";
 import { Link } from "react-router-dom";
+import { googleLogin } from "../actions/auth";
 
 const Login = () => {
+
+const dispatch = useDispatch();
+
+  const handleGoogleLogin = () => {
+   dispatch(googleLogin("12345","Edward"))
+  };
   return (
     <>
       <form>
@@ -43,18 +51,13 @@ const Login = () => {
                 width: "100%",
                 backgroundColor: "#6177DF",
                 marginBottom: 10,
+                color: "white",
               }}
             />
-            <GoogleButton
-              onClick={() => {
-                console.log("Google button clicked");
-              }}
-            />
+            <GoogleButton onClick={handleGoogleLogin} />
           </div>
           <div style={{ fontSize: 14, marginTop: 10 }}>
-            <Link to='/register'>
-            Register Now!
-            </Link>
+            <Link to="/register">Register Now!</Link>
           </div>
           <br />
         </div>
