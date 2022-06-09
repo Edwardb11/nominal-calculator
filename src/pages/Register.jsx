@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { register } from "../actions/auth";
 
 const Register = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -25,7 +25,7 @@ const Register = () => {
   const { email, username, password, password2 } = data;
   const handleRegister = (e) => {
     e.preventDefault();
-    if (email.trim() === "" ) {
+    if (email.trim() === "") {
       // console.log("entro email")
       return;
     }
@@ -43,7 +43,7 @@ const Register = () => {
       }
     }
     // console.log("entro")
-    dispatch(register(email,password,username))
+    dispatch(register(email, password, username));
   };
   return (
     <>
@@ -70,6 +70,7 @@ const Register = () => {
                 value={email}
                 type="email"
                 name="email"
+                id="email"
               />
               <label htmlFor="email">Email</label>
             </div>
@@ -82,11 +83,11 @@ const Register = () => {
                 value={username}
                 type="text"
                 name="username"
+                id="username"
               />
               <label htmlFor="username">Username</label>
             </div>
           </div>
-
           <div className="col m12 l12">
             <div className="input-field">
               <i className="material-icons prefix">lock</i>
@@ -95,6 +96,7 @@ const Register = () => {
                 value={password}
                 type="password"
                 name="password"
+                id="password"
               />
               <label htmlFor="password">Password</label>
             </div>
@@ -102,13 +104,14 @@ const Register = () => {
           <div className="col m12 l12">
             <div className="input-field">
               <i className="material-icons prefix">lock</i>
-              <label htmlFor="password2">Confirm Password</label>
               <input
                 onChange={handleChange}
                 value={password2}
                 type="password"
                 name="password2"
+                id="password2"
               />
+              <label htmlFor="password2">Confirm Password</label>
             </div>
           </div>
           <div className="center">
