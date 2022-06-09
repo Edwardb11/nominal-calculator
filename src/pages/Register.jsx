@@ -1,11 +1,30 @@
 import React from "react";
 import "../styles/login.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Register = () => {
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+    password2: "",
+    username: "",
+  });
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    // console.log(value);
+    setData({
+      ...data,[e.target.name]:value
+    })
+  };
+  const { email, username, password, password2 } = data;
+  const handleRegister = (e) => {
+    e.preventDefault();
+  };
   return (
     <>
-      <form>
+      <form onSubmit={handleRegister}>
         <div className="card-panel z-depth-5">
           <div className="row margin">
             <div className="col s12 m12 l12 center">
@@ -23,14 +42,24 @@ const Register = () => {
           <div className="col s12 m12 l12">
             <div className="input-field">
               <i className="material-icons prefix">email</i>
-              <input type="email" name="Email" id="Email" />
+              <input
+                onChange={handleChange}
+                value={email}
+                type="email"
+                name="email"
+              />
               <label htmlFor="Email">Email</label>
             </div>
           </div>
           <div className="col s12 m12 l12">
             <div className="input-field">
               <i className="material-icons prefix">assignment_ind</i>
-              <input type="text" name="username" id="username" />
+              <input
+                onChange={handleChange}
+                value={username}
+                type="text"
+                name="username"
+              />
               <label htmlFor="username">Username</label>
             </div>
           </div>
@@ -38,14 +67,24 @@ const Register = () => {
           <div className="col m12 l12">
             <div className="input-field">
               <i className="material-icons prefix">lock</i>
-              <input type="password" name="password" id="password" />
+              <input
+                onChange={handleChange}
+                value={password}
+                type="password"
+                name="password"
+              />
               <label htmlFor="password">Password</label>
             </div>
           </div>
           <div className="col m12 l12">
             <div className="input-field">
               <i className="material-icons prefix">lock</i>
-              <input type="password" name="password2" id="password2" />
+              <input
+                onChange={handleChange}
+                value={password2}
+                type="password"
+                name="password2"
+              />
               <label htmlFor="password2">Confirm Password</label>
             </div>
           </div>
