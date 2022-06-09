@@ -2,8 +2,11 @@ import React from "react";
 import "../styles/login.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { register } from "../actions/auth";
 
 const Register = () => {
+  const dispatch = useDispatch()
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -22,19 +25,25 @@ const Register = () => {
   const { email, username, password, password2 } = data;
   const handleRegister = (e) => {
     e.preventDefault();
-    if (email.trim() === "" || email.trim().includes("@")) {
+    if (email.trim() === "" ) {
+      // console.log("entro email")
       return;
     }
     if (username.trim().length < 2) {
+      // console.log("entro user")
       return;
     }
     if (password.trim().length < 6) {
+      // console.log("entro pass")
       return;
     } else {
       if (password.trim() !== password2.trim()) {
+        // console.log("entro pass 2")
         return;
       }
     }
+    // console.log("entro")
+    dispatch(register(email,password,username))
   };
   return (
     <>
