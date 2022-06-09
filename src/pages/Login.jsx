@@ -6,11 +6,10 @@ import { Link } from "react-router-dom";
 import { googleLogin } from "../actions/auth";
 
 const Login = () => {
-
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleGoogleLogin = () => {
-   dispatch(googleLogin())
+    dispatch(googleLogin());
   };
   return (
     <>
@@ -24,19 +23,21 @@ const dispatch = useDispatch();
                 className="responsive-img circle"
                 style={{ width: 100 }}
               />
-              <p>Login</p>
+              <p style={{ textTransform: "uppercase", fontWeight: 500 }}>
+                Login
+              </p>
             </div>
           </div>
           <div className="col s12 m12 l12">
             <div className="input-field">
-              <i className="material-icons prefix">person</i>
-              <input type="text" name="username" id="username" />
-              <label htmlFor="username">Username</label>
+              <i className="material-icons prefix">email</i>
+              <input type="email" name="Email" id="Email" />
+              <label htmlFor="Email">Email</label>
             </div>
           </div>
           <div className="col m12 l12">
             <div className="input-field">
-              <i className="material-icons prefix">lock</i>
+              <i className="material-icons prefix">vpn_key</i>
               <input type="password" name="password" id="password" />
               <label htmlFor="password">Password</label>
             </div>
