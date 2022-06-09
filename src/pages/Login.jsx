@@ -10,7 +10,7 @@ const Login = () => {
 const dispatch = useDispatch();
 
   const handleGoogleLogin = () => {
-   dispatch(googleLogin("12345","Edward"))
+   dispatch(googleLogin())
   };
   return (
     <>
