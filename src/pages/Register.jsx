@@ -15,24 +15,24 @@ const Register = () => {
     const value = e.target.value;
     // console.log(value);
     setData({
-      ...data,[e.target.name]:value
-    })
+      ...data,
+      [e.target.name]: value,
+    });
   };
   const { email, username, password, password2 } = data;
   const handleRegister = (e) => {
     e.preventDefault();
     if (email.trim() === "" || email.trim().includes("@")) {
-      return 
+      return;
     }
-    if (username.trim().length < 2 ) {
-      return
+    if (username.trim().length < 2) {
+      return;
     }
     if (password.trim().length < 6) {
-      return 
-    }
-    else{
-      if (password.trim()!== password2.trim()) {
-        return
+      return;
+    } else {
+      if (password.trim() !== password2.trim()) {
+        return;
       }
     }
   };
@@ -91,7 +91,7 @@ const Register = () => {
             </div>
           </div>
           <div className="col m12 l12">
-            <div className="input-field" >
+            <div className="input-field">
               <i className="material-icons prefix">lock</i>
               <label htmlFor="password2">Confirm Password</label>
               <input
