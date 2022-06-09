@@ -21,6 +21,20 @@ const Register = () => {
   const { email, username, password, password2 } = data;
   const handleRegister = (e) => {
     e.preventDefault();
+    if (email.trim() === "" || email.trim().includes("@")) {
+      return 
+    }
+    if (username.trim().length < 2 ) {
+      return
+    }
+    if (password.trim().length < 6) {
+      return 
+    }
+    else{
+      if (password.trim()!== password2.trim()) {
+        return
+      }
+    }
   };
   return (
     <>
@@ -48,7 +62,7 @@ const Register = () => {
                 type="email"
                 name="email"
               />
-              <label htmlFor="Email">Email</label>
+              <label htmlFor="email">Email</label>
             </div>
           </div>
           <div className="col s12 m12 l12">
@@ -77,15 +91,15 @@ const Register = () => {
             </div>
           </div>
           <div className="col m12 l12">
-            <div className="input-field">
+            <div className="input-field" >
               <i className="material-icons prefix">lock</i>
+              <label htmlFor="password2">Confirm Password</label>
               <input
                 onChange={handleChange}
                 value={password2}
                 type="password"
                 name="password2"
               />
-              <label htmlFor="password2">Confirm Password</label>
             </div>
           </div>
           <div className="center">
