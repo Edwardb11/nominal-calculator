@@ -44,7 +44,7 @@ const Login = () => {
   return (
     <>
       <form onSubmit={handleEmailLogin} className="table">
-        <div className="card-panel z-depth-5  tables">
+        <div className="card-panel z-depth-5">
           <div className="row margin">
             <div className="col s12 m12 l12 center">
               <img

@@ -4,13 +4,8 @@ body{
     width: 100%;
 }
 .table {
-    display: table;
-    margin: auto;
-    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-}
-
-.tables {
-    display: table-cell;
-    vertical-align: middle;
 }
