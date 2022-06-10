@@ -47,8 +47,8 @@ const Register = () => {
   };
   return (
     <>
-      <form onSubmit={handleRegister}>
-        <div className="card-panel z-depth-5">
+      <form onSubmit={handleRegister} className="table">
+        <div className="card-panel z-depth-5 tables">
           <div className="row margin">
             <div className="col s12 m12 l12 center">
               <img

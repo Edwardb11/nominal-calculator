@@ -1,12 +1,16 @@
+
 html,
-body {
-    height: 100%;
+body{
+    width: 100%;
 }
-html {
+.table {
     display: table;
     margin: auto;
+    margin-top: 10%;
+
 }
-body {
+
+.tables {
     display: table-cell;
     vertical-align: middle;
 }

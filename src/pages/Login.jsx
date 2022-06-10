@@ -34,7 +34,7 @@ const Login = () => {
       // console.log("entro email")
       return;
     }
-    
+
     if (password.trim().length < 6) {
       // console.log("entro pass")
       return;
@@ -43,8 +43,8 @@ const Login = () => {
   };
   return (
     <>
-      <form onSubmit={handleEmailLogin}>
-        <div className="card-panel z-depth-5">
+      <form onSubmit={handleEmailLogin} className="table">
+        <div className="card-panel z-depth-5  tables">
           <div className="row margin">
             <div className="col s12 m12 l12 center">
               <img
