@@ -3,17 +3,47 @@ import { useDispatch } from "react-redux";
 import "../styles/login.css";
 import GoogleButton from "react-google-button";
 import { Link } from "react-router-dom";
-import { googleLogin } from "../actions/auth";
+import { googleLogin, emailAndPasswordLogin } from "../actions/auth";
+import { useState } from "react";
 
 const Login = () => {
   const dispatch = useDispatch();
 
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    // console.log(value);
+    setData({
+      ...data,
+      [e.target.name]: value,
+    });
+  };
+
+  const { email, password } = data;
+
   const handleGoogleLogin = () => {
     dispatch(googleLogin());
   };
+  const handleEmailLogin = (e) => {
+    e.preventDefault();
+    if (email.trim() === "") {
+      // console.log("entro email")
+      return;
+    }
+    
+    if (password.trim().length < 6) {
+      // console.log("entro pass")
+      return;
+    } 
+    dispatch(emailAndPasswordLogin(email,password));
+  };
   return (
     <>
-      <form>
+      <form onSubmit={handleEmailLogin}>
         <div className="card-panel z-depth-5">
           <div className="row margin">
             <div className="col s12 m12 l12 center">
@@ -31,14 +61,26 @@ const Login = () => {
           <div className="col s12 m12 l12">
             <div className="input-field">
               <i className="material-icons prefix">email</i>
-              <input type="email" name="Email" id="Email" />
+              <input
+                onChange={handleChange}
+                value={email}
+                type="email"
+                name="email"
+                id="Email"
+              />
               <label htmlFor="Email">Email</label>
             </div>
           </div>
           <div className="col m12 l12">
             <div className="input-field">
               <i className="material-icons prefix">vpn_key</i>
-              <input type="password" name="password" id="password" />
+              <input
+                onChange={handleChange}
+                value={password}
+                type="password"
+                name="password"
+                id="password"
+              />
               <label htmlFor="password">Password</label>
             </div>
           </div>
