@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import Home from "../pages/Home";
 
 const AppRouter = () => {
   return (
-    <h1>AppRouter</h1>
-  )
-}
+    <Switch>
+      <Route exact path="/home" component={Home} />
+    </Switch>
+  );
+};
 
-export default AppRouter
+export default AppRouter;

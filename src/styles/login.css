@@ -1,12 +1,11 @@
+
 html,
-body {
-    height: 100%;
+body{
+    width: 100%;
 }
-html {
-    display: table;
-    margin: auto;
-}
-body {
-    display: table-cell;
-    vertical-align: middle;
+.table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

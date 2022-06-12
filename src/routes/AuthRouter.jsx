@@ -5,6 +5,7 @@ import Register from "../pages/Register";
 import { firebase } from "../firebase/config";
 import { useDispatch } from "react-redux";
 import { login } from "../actions/auth";
+import AppRouter from "./AppRouter";
 
 const AuthRouter = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const AuthRouter = () => {
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
+        <AppRouter/>
       </Switch>
     </Router>
   );
