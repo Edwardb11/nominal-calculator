@@ -1,0 +1,11 @@
+
+html,
+body{
+    width: 100%;
+}
+.table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

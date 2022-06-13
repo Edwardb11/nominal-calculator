@@ -1,16 +1,16 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Redirect, Route,Switch } from "react-router-dom";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 
 const AuthRouter = () => {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-      </Switch>
-    </Router>
+    <Switch>
+      <Route exact path="/auth/login" component={Login} />
+      <Route exact path="/auth/register" component={Register} />
+
+      <Redirect to="/auth/login" />
+    </Switch>
   );
 };
 
