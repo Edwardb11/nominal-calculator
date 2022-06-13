@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="brown darken-3">
+    <nav className="grey darken-3">
       <div className="nav-wrapper">
         <span className="flow-text">Calculadora Nominal</span>
         <ul id="nav-mobile" className="right hide-on-med-and-down">

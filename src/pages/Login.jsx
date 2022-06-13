@@ -100,7 +100,7 @@ const Login = () => {
             <GoogleButton onClick={handleGoogleLogin} />
           </div>
           <div style={{ fontSize: 14, marginTop: 10 }}>
-            <Link to="/register">Register Now!</Link>
+            <Link to="/auth/register">Register Now!</Link>
           </div>
           <br />
         </div>
