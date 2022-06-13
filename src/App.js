@@ -1,12 +1,12 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { store } from './store/store'
-import AuthRouter from './routes/AuthRouter'
+import AppRouter from './routes/AppRouter'
 
 const App = () => {
   return (
     <Provider store={store}>
-      <AuthRouter/> 
+      <AppRouter/> 
     </Provider>
   )
 }
