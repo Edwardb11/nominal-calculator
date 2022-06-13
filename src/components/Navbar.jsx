@@ -23,8 +23,8 @@ const Navbar = () => {
             </button>
           </li>
         </ul>
-        <div class="nav-content right">
-          <ul class=" right tabs tabs-transparent hide-on-large-only">
+        <div className="nav-content right">
+          <ul className=" right tabs tabs-transparent hide-on-large-only">
             <li>
               <button
                 onClick={handleLogout}
