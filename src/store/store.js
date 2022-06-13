@@ -5,8 +5,9 @@ import { authReducer } from "../reducers/authReducer";
 import { nominaReducer } from "../reducers/nominaReducer";
 
 const reducers = combineReducers({
-  auth: authReducer,
-  nomina: nominaReducer,
+   auth:authReducer,
+  nomina:nominaReducer,
+
 });
 
 const composeEnhancers =
