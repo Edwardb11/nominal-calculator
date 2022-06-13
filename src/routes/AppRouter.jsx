@@ -29,7 +29,7 @@ const AppRouter = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/login" component={AuthRouter}/>
+        <Route path="/auth/" component={AuthRouter}/>
         <PrivateRouter log={log} component={Home} />
       </Switch>
     </Router>

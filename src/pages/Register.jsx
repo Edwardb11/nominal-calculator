@@ -129,7 +129,7 @@ const Register = () => {
             />
           </div>
           <div style={{ fontSize: 14, marginTop: 10 }}>
-            <Link to="/login">Login now!</Link>
+            <Link to="/auth/login">Login now!</Link>
           </div>
           <br />
         </div>
