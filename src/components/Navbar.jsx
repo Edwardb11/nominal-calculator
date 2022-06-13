@@ -1,20 +1,40 @@
 import React from "react";
-import  '../styles/Navbar.css'
+import { useDispatch } from "react-redux";
+import { logout } from "../actions/auth";
+
 const Navbar = () => {
+  
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
-    <nav className=" teal lighten-1">
+    <nav className="brown darken-3">
       <div className="nav-wrapper">
-        <span className="brand-logo">Calculadora Nominal</span>
+        <span className="flow-text">Calculadora Nominal</span>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
             <button
-              className="btn red darken-2 waves-effect waves-light"
+              onClick={handleLogout}
+              className="btn red darken-4 waves-effect waves-light"
             >
               Cerrar sesión
             </button>
           </li>
         </ul>
+        <div class="nav-content right">
+          <ul class=" right tabs tabs-transparent hide-on-large-only">
+            <li>
+              <button
+                onClick={handleLogout}
+                className="btn red darken-4 waves-effect waves-light"
+              >
+                Cerrar sesión
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

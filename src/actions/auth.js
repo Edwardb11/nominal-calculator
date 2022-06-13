@@ -1,18 +1,18 @@
 import { types } from "../types/types";
 import { firebase, googleAuthProvider } from "../firebase/config";
 
-export const emailAndPasswordLogin=(email, password)=>{
+export const emailAndPasswordLogin = (email, password) => {
   return (dispatch) => {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-    //   .then((data)=>console.log(data))
-      .then( ({ user }) => {
+      //   .then((data)=>console.log(data))
+      .then(({ user }) => {
         dispatch(login(user.uid, user.displayName));
         // console.log(user);
       });
   };
-}
+};
 
 export const googleLogin = () => {
   return (dispatch) => {
@@ -30,7 +30,7 @@ export const register = (email, password, username) => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-    //   .then((data)=>console.log(data))
+      //   .then((data)=>console.log(data))
       .then(async ({ user }) => {
         await user.updateProfile({ displayName: username });
         dispatch(login(user.uid, user.displayName));
@@ -46,5 +46,12 @@ export const login = (uid, displayName) => {
       uid,
       displayName,
     },
+  };
+};
+
+export const logout = () => {
+  return async (dispatch) => {
+    await firebase.auth().signOut();
+    dispatch({ type: types.logout });
   };
 };
