@@ -13,16 +13,18 @@ const AuthRouter = () => {
   // notify if the status change of the authentication
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {
-      dispatch(login(user.uid, user.displayName));
+      if (user) {
+        dispatch(login(user.uid, user.displayName));
+      }
     });
-  },[dispatch]);
+  }, [dispatch]);
 
   return (
     <Router>
       <Switch>
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <AppRouter/>
+        <AppRouter />
       </Switch>
     </Router>
   );
