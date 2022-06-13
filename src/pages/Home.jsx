@@ -1,15 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import Navbar from "../components/Navbar";
 
 const Home = () => {
-
+  const name = useSelector((state) => state.auth.displayName);
   return (
     <>
       <Navbar />
-
-      <div className="container animate__animated animate__backInUp">
-    Hello
+      <div className="container ">
+        <h1 className="center">Hola {name}</h1>
       </div>
     </>
   );
