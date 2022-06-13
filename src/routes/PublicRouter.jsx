@@ -1,15 +1,14 @@
-import React from 'react'
-import { Route } from 'workbox-routing'
-import Register from '../pages/Register'
-import Login from '../pages/Login'
+import React from "react";
+import { Redirect, Route } from "react-router-dom";
 
-const PublicRouter = () => {
+const PublicRouter = ({ log, component: Component, ...rest  }) => {
   return (
-    <div>
-              <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-    </div>
-  )
-}
+    <Route {...rest}
+      component={(props) =>
+        log ? <Redirect to="/" /> : <Component {...props} />
+      }
+    />
+  );
+};
 
-export default PublicRouter
+export default PublicRouter;
