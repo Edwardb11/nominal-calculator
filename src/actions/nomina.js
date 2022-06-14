@@ -38,3 +38,11 @@ export const create = (data) => {
     payload: data,
   };
 };
+
+
+export const deleteRegister = (id) => {
+  return {
+    type: types.nominaDelete,
+    payload: id,
+  };
+};
