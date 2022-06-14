@@ -8,6 +8,6 @@ export const loadData = async (uid) => {
     const nominaData = nomina.data();
     data.push({ id: nomina.id, ...nominaData });
   });
-  console.log(data)
+//   console.log(data)
   return data;
 };

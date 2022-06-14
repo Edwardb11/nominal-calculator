@@ -20,7 +20,7 @@ export const createRegister = (pago) => {
     };
 
     const ref = await db.collection(`${uid}/nominas/nomina`).add(datos);
-    console.log(ref);
+    // console.log(ref);
   };
 };
 
