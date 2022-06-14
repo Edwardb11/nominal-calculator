@@ -2,11 +2,15 @@ import React from "react";
 
 const Elements = ({ data }) => {
   const { fecha, pago } = data;
-  // console.log('data', data)
-  const date = fecha.toDate();
-  // const fechaFormato = `${date.getFullYear()}-${date.getDay()}-${date.getMonth()}`
-  const fechaFormato = date.toLocaleDateString();
-  // console.log(fechaFormato)
+  let fechaFormato;
+
+  if (fecha.seconds) {
+    const date = fecha.toDate();
+    fechaFormato = date.toLocaleDateString();
+  } else {
+    fechaFormato = fecha;
+  }
+
   return (
     <>
       <td>{fechaFormato}</td>
