@@ -5,43 +5,55 @@ import { createRegister } from "../actions/nomina";
 const Forms = () => {
   const [viewForm, setViewForm] = useState(false);
   const [money, setMoney] = useState({
-      horas:0,
-      precioHoras:0
+    precioHoras: 0,
+    horas: 0,
   });
+  const { precioHoras, horas } = money;
+
   const dispatch = useDispatch();
   const handleAdd = () => {
     setViewForm(!viewForm);
   };
 
   const handleChange = (e) => {
-    setMoney(parseFloat(e.target.value));
+    setMoney({
+      ...money,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleSave =()=>{
-    dispatch(createRegister(money));
-
-  }
+  const handleSave = () => {
+    const cantidaFinal = horas * precioHoras;
+    dispatch(createRegister(cantidaFinal));
+  };
 
   return (
     <div>
       <button onClick={handleAdd} className="btn green ">
-        Agregar
+        {!viewForm ? "Agregar" : "Cerrar"}
       </button>
       {viewForm && (
         <>
           <input
             type="number"
             placeholder="Cantidad de pago por hora"
-            value={money}
+            value={precioHoras}
             onChange={handleChange}
+            name="precioHoras"
           />
           <input
             type="number"
             placeholder="Cantidad de horas"
-            value={money}
+            value={horas}
             onChange={handleChange}
+            name="horas"
           />
-          <button onClick={handleSave} className="btn waves-effect waves-light green darken-2">Calcular y guardar</button>
+          <button
+            onClick={handleSave}
+            className="btn waves-effect waves-light green darken-2"
+          >
+            Calcular y guardar
+          </button>
         </>
       )}
     </div>
