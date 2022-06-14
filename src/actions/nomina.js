@@ -8,16 +8,17 @@
 
 import { db } from "../firebase/config";
 
-export const createRegister = () => {
-  return (distpatch, getState) => {
+export const createRegister = (pago) => {
+  return async (distpatch, getState) => {
     // console.log(getState())
     const { uid } = getState().auth;
 
     const datos = {
       fecha: new Date(),
-      pago: 300.0,
+      pago: pago,
     };
 
-    const ref = db.collection(`${uid}/nominas/nomina`).add(datos);
+    const ref = await db.collection(`${uid}/nominas/nomina`).add(datos);
+    console.log(ref);
   };
 };
