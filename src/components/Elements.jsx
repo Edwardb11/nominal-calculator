@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteRegister } from "../actions/nomina";
-// import { db } from "../firebase/config";
 
 const Elements = ({ data }) => {
   const dispatch = useDispatch();
@@ -15,7 +14,6 @@ const Elements = ({ data }) => {
     fechaFormato = fecha;
   }
   const handleDelete = () => {
-    // db.collection()
     dispatch(deleteRegister(id));
   };
   return (

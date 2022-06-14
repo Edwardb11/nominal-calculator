@@ -39,8 +39,15 @@ export const create = (data) => {
   };
 };
 
-
 export const deleteRegister = (id) => {
+  return async (dispatch, getState) => {
+    const { uid } = getState().auth;
+    await db.doc(`${uid}/nominas/nomina/${id}`).delete()
+    dispatch(remove(id))
+  };
+};
+
+export const remove = (id) => {
   return {
     type: types.nominaDelete,
     payload: id,
