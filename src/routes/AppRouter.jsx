@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../actions/auth";
 import AuthRouter from "./AuthRouter";
 import PublicRouter from "./PublicRouter";
+import { loadData } from "../helpers/loadData";
 const AppRouter = () => {
   const dispatch = useDispatch();
   const [log,setLog] = useState(false)
@@ -20,6 +21,7 @@ const AppRouter = () => {
       if (user) {
         dispatch(login(user.uid, user.displayName));
         setLog(true)
+        loadData(user.uid)
       }
       else{
         setLog(false)
