@@ -25,6 +25,10 @@ const Forms = () => {
   const handleSave = () => {
     const cantidaFinal = horas * precioHoras;
     dispatch(createRegister(cantidaFinal));
+    setMoney({
+      precioHoras: 0,
+      horas: 0,
+    });
   };
 
   return (
@@ -34,20 +38,28 @@ const Forms = () => {
       </button>
       {viewForm && (
         <>
-          <input
-            type="number"
-            placeholder="Cantidad de pago por hora"
-            value={precioHoras}
-            onChange={handleChange}
-            name="precioHoras"
-          />
-          <input
-            type="number"
-            placeholder="Cantidad de horas"
-            value={horas}
-            onChange={handleChange}
-            name="horas"
-          />
+          <div className="input-field col s12">
+            <label htmlFor="precioHoras">Pago por hora:</label>
+            <input
+              type="number"
+              value={precioHoras}
+              onChange={handleChange}
+              name="precioHoras"
+              id="precioHoras"
+            />
+          </div>
+          <div className="input-field col s12">
+            <label htmlFor="horas">Horas laboradas:</label>
+
+            <input
+              type="number"
+              value={horas}
+              onChange={handleChange}
+              name="horas"
+              id="horas"
+            />
+          </div>
+
           <button
             onClick={handleSave}
             className="btn waves-effect waves-light green darken-2"
