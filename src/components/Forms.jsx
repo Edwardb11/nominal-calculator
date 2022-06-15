@@ -37,7 +37,7 @@ const Forms = () => {
         {!viewForm ? "Agregar" : "Cerrar"}
       </button>
       {viewForm && (
-        <>
+        <div  className="animate__animated animate__fadeIn">
           <div className="input-field col s12">
             <label htmlFor="precioHoras">Pago por hora:</label>
             <input
@@ -66,7 +66,7 @@ const Forms = () => {
           >
             Calcular y guardar
           </button>
-        </>
+        </div>
       )}
     </div>
   );

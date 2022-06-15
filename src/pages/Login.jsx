@@ -43,7 +43,7 @@ const Login = () => {
   };
   return (
     <>
-      <form onSubmit={handleEmailLogin} className="table">
+      <form onSubmit={handleEmailLogin} className="table animate__animated animate__zoomIn">
         <div className="card-panel z-depth-5">
           <div className="row margin">
             <div className="col s12 m12 l12 center">

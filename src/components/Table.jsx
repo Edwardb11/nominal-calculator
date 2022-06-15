@@ -17,7 +17,7 @@ const Table = () => {
       <tbody>
         {data.map((row) => {
           return (
-            <tr key={row.id}>
+            <tr className="animate__animated animate__fadeInUp" key={row.id}>
               <Elements data={row} />
             </tr>
           );

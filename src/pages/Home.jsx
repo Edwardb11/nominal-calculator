@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <div className="container ">
+      <div className="container animate__animated animate__backInUp ">
         <h1 className="center">Hola {name}</h1>
         <Forms />
         <Table/>
