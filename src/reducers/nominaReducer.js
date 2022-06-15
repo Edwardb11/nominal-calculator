@@ -23,6 +23,11 @@ export const nominaReducer = (state = initialState, action) => {
           return nomina.id !== action.payload;
         }),
       };
+    case types.nominaClean:
+      return {
+        ...state,
+        data: [],
+      };
     default:
       return state;
   }
