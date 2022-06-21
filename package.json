@@ -4,14 +4,15 @@
   "private": true,
   "dependencies": {
     "firebase": "^9.8.2",
+    "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-google-button": "^0.7.2",
     "react-redux": "^7.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
-    "react": "^18.1.0",
-    "redux-thunk": "^2.4.1",
     "redux": "^4.1.0",
+    "redux-thunk": "^2.4.1",
+    "sweetalert2": "^11.4.18",
     "web-vitals": "^2.1.4",
     "workbox-background-sync": "^6.5.3",
     "workbox-broadcast-update": "^6.5.3",
@@ -26,7 +27,6 @@
     "workbox-strategies": "^6.5.3",
     "workbox-streams": "^6.5.3"
   },
-
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
