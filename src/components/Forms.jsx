@@ -26,6 +26,9 @@ const Forms = () => {
     if (precioHoras || horas <= -1) {
       return;
     }
+    if (precioHoras || horas === "") {
+      return;
+    }
     const cantidaFinal = horas * precioHoras;
     dispatch(createRegister(cantidaFinal));
     setMoney({
@@ -42,7 +45,7 @@ const Forms = () => {
       {viewForm && (
         <div className="animate__animated animate__fadeIn">
           <div className="input-field col s12">
-            <label htmlFor="precioHoras">Pago por hora:</label>
+            <label htmlFor="precioHoras">*Pago por hora (Mensual):</label>
             <input
               type="number"
               value={precioHoras}
@@ -51,10 +54,11 @@ const Forms = () => {
               placeholder="0"
               id="precioHoras"
               min="1"
+              required
             />
           </div>
           <div className="input-field col s12">
-            <label htmlFor="horas">Horas laboradas:</label>
+            <label htmlFor="horas">*Horas laboradas (Mensual):</label>
 
             <input
               type="number"
@@ -64,6 +68,7 @@ const Forms = () => {
               placeholder="0"
               min="1"
               id="horas"
+              required
             />
           </div>
 
