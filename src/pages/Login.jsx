@@ -53,6 +53,7 @@ const Login = () => {
   return (
     <>
       <form
+        style={{ marginTop: 100 }}
         onSubmit={handleEmailLogin}
         className="table animate__animated animate__zoomIn"
       >

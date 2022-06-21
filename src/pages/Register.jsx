@@ -69,6 +69,7 @@ const Register = () => {
   return (
     <>
       <form
+        style={{ marginTop: 100 }}
         onSubmit={handleRegister}
         className="table animate__animated animate__zoomIn"
       >
