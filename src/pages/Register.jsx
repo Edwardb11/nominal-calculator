@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../actions/auth";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -26,28 +27,51 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     if (email.trim() === "") {
-      // console.log("entro email")
+      Swal.fire({
+        icon: "error",
+        title: "Error...",
+        text: "Correo electrónico inválido. ",
+      });
       return;
     }
     if (username.trim().length < 2) {
-      // console.log("entro user")
+      Swal.fire({
+        icon: "error",
+        title: "Error...",
+        text: "El username debe ser mayor de 2 caracteres.",
+      });
       return;
     }
     if (password.trim().length < 6) {
-      // console.log("entro pass")
+      Swal.fire({
+        icon: "error",
+        title: "Error...",
+        text: "La contraseña debe ser mayor de 6 caracteres.",
+      });
       return;
     } else {
       if (password.trim() !== password2.trim()) {
-        // console.log("entro pass 2")
+        Swal.fire({
+          icon: "error",
+          title: "Error...",
+          text: "Las contraseñas no coinciden.",
+        });
         return;
       }
     }
-    // console.log("entro")
+    Swal.fire({
+      icon: "success",
+      showConfirmButton: false,
+      timer: 500,
+    });
     dispatch(register(email, password, username));
   };
   return (
     <>
-      <form onSubmit={handleRegister} className="table animate__animated animate__zoomIn">
+      <form
+        onSubmit={handleRegister}
+        className="table animate__animated animate__zoomIn"
+      >
         <div className="card-panel z-depth-5">
           <div className="row margin">
             <div className="col s12 m12 l12 center">
@@ -71,8 +95,9 @@ const Register = () => {
                 type="email"
                 name="email"
                 id="email"
+                required
               />
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">*Email</label>
             </div>
           </div>
           <div className="col s12 m12 l12">
@@ -84,8 +109,9 @@ const Register = () => {
                 type="text"
                 name="username"
                 id="username"
+                required
               />
-              <label htmlFor="username">Username</label>
+              <label htmlFor="username">*Username</label>
             </div>
           </div>
           <div className="col m12 l12">
@@ -97,8 +123,9 @@ const Register = () => {
                 type="password"
                 name="password"
                 id="password"
+                required
               />
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">*Password</label>
             </div>
           </div>
           <div className="col m12 l12">
@@ -110,8 +137,9 @@ const Register = () => {
                 type="password"
                 name="password2"
                 id="password2"
+                required
               />
-              <label htmlFor="password2">Confirm Password</label>
+              <label htmlFor="password2">*Confirm Password</label>
             </div>
           </div>
           <div className="center">

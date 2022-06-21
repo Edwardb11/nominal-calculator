@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 import { createRegister } from "../actions/nomina";
 
 const Forms = () => {
@@ -23,10 +24,28 @@ const Forms = () => {
   };
 
   const handleSave = () => {
-    if (precioHoras || horas <= -1) {
+    if (precioHoras == 0 || horas == 0) {
+      Swal.fire({
+        icon: "error",
+        title: "Error...",
+        text: "Por favor introduzca un número mayor que 0.",
+      });
       return;
     }
-    if (precioHoras || horas === "") {
+    if (precioHoras === "" || horas === "") {
+      Swal.fire({
+        icon: "error",
+        title: "Error...",
+        text: "Los campos son requeridos.",
+      });
+      return;
+    }
+    if (precioHoras <= -1 || horas <= -1) {
+      Swal.fire({
+        icon: "error",
+        title: "Error...",
+        text: "No se permite introducir números negativos.",
+      });
       return;
     }
     const cantidaFinal = horas * precioHoras;
@@ -35,11 +54,17 @@ const Forms = () => {
       precioHoras: "",
       horas: "",
     });
+    Swal.fire({
+      icon: "success",
+      title: "Guardado.",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   return (
     <div>
-      <button onClick={handleAdd} className="btn green ">
+      <button onClick={handleAdd} className="btn  green  ">
         {!viewForm ? "Agregar" : "Cerrar"}
       </button>
       {viewForm && (

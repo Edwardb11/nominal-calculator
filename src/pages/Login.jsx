@@ -5,6 +5,7 @@ import GoogleButton from "react-google-button";
 import { Link } from "react-router-dom";
 import { googleLogin, emailAndPasswordLogin } from "../actions/auth";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -31,19 +32,30 @@ const Login = () => {
   const handleEmailLogin = (e) => {
     e.preventDefault();
     if (email.trim() === "") {
-      // console.log("entro email")
       return;
     }
 
     if (password.trim().length < 6) {
-      // console.log("entro pass")
+      Swal.fire({
+        icon: "error",
+        title: "Error...",
+        text: "Contraseña inválida. ",
+      });
       return;
-    } 
-    dispatch(emailAndPasswordLogin(email,password));
+    }
+    Swal.fire({
+      icon: "success",
+      showConfirmButton: false,
+      timer: 500,
+    });
+    dispatch(emailAndPasswordLogin(email, password));
   };
   return (
     <>
-      <form onSubmit={handleEmailLogin} className="table animate__animated animate__zoomIn">
+      <form
+        onSubmit={handleEmailLogin}
+        className="table animate__animated animate__zoomIn"
+      >
         <div className="card-panel z-depth-5">
           <div className="row margin">
             <div className="col s12 m12 l12 center">
