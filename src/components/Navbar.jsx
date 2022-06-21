@@ -1,14 +1,26 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 import { logout } from "../actions/auth";
 import { clean } from "../actions/nomina";
 
 const Navbar = () => {
-  
   const dispatch = useDispatch();
   const handleLogout = () => {
-    dispatch(clean())
-    dispatch(logout());
+    Swal.fire({
+      title: "¿Estás seguro de cerrar sesión?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Si",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        dispatch(clean());
+        dispatch(logout());
+      }
+    });
   };
 
   return (
