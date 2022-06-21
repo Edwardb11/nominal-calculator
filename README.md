@@ -9,16 +9,18 @@ A nominal calculator app to manage your earnings.
 - You get a calculation of the corresponding payment
 
 ## Screenshots
+
 __Desktop__
 ![image](https://user-images.githubusercontent.com/37183622/174832028-85a08db3-6913-4309-a590-449db668eef1.png)
 
 
 __Mobile__
+
 ![image](https://user-images.githubusercontent.com/37183622/174832366-bdd532f4-e01b-4efc-896a-e20a0c48f929.png)
 
 ## Demo
 
-[Live](https://nominal-calculator.firebaseapp.com/auth/login)
+[Live](https://nominal-calculator.web.app/auth/login)
 
 ## Run Locally
 
