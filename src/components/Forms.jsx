@@ -5,8 +5,8 @@ import { createRegister } from "../actions/nomina";
 const Forms = () => {
   const [viewForm, setViewForm] = useState(false);
   const [money, setMoney] = useState({
-    precioHoras: 0,
-    horas: 0,
+    precioHoras: "",
+    horas: "",
   });
   const { precioHoras, horas } = money;
 
@@ -23,11 +23,14 @@ const Forms = () => {
   };
 
   const handleSave = () => {
+    if (precioHoras || horas <= -1) {
+      return;
+    }
     const cantidaFinal = horas * precioHoras;
     dispatch(createRegister(cantidaFinal));
     setMoney({
-      precioHoras: 0,
-      horas: 0,
+      precioHoras: "",
+      horas: "",
     });
   };
 
@@ -37,7 +40,7 @@ const Forms = () => {
         {!viewForm ? "Agregar" : "Cerrar"}
       </button>
       {viewForm && (
-        <div  className="animate__animated animate__fadeIn">
+        <div className="animate__animated animate__fadeIn">
           <div className="input-field col s12">
             <label htmlFor="precioHoras">Pago por hora:</label>
             <input
@@ -45,7 +48,9 @@ const Forms = () => {
               value={precioHoras}
               onChange={handleChange}
               name="precioHoras"
+              placeholder="0"
               id="precioHoras"
+              min="1"
             />
           </div>
           <div className="input-field col s12">
@@ -56,6 +61,8 @@ const Forms = () => {
               value={horas}
               onChange={handleChange}
               name="horas"
+              placeholder="0"
+              min="1"
               id="horas"
             />
           </div>
